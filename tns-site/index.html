@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>True North Surveying | Precision Starts Here</title>
+  <meta name="description" content="True North Surveying provides ALTA/NSPS, boundary, topographic, construction staking, as-builts, UAV/drone mapping, and 3D scanning services. Precision starts here." />
+  <link rel="icon" href="assets/favicon.png" />
+  <style>
+    :root{
+      --brand-green-900:#0b3a2b;
+      --brand-green-600:#146a4a;
+      --brand-green-300:#6ec2a2;
+      --brand-orange-600:#f06a00;
+      --brand-orange-500:#ff7a1a;
+      --ink-900:#111827;
+      --ink-700:#374151;
+      --ink-500:#6b7280;
+      --bg-50:#f8faf9;
+      --white:#ffffff;
+      --radius:18px;
+      --shadow:0 8px 24px rgba(0,0,0,.08);
+      --container:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink-900);background:#fff;scroll-behavior:smooth}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--container);margin:0 auto;padding:0 20px}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;background:var(--brand-orange-600);color:#fff;border-radius:999px;padding:.85rem 1.25rem;font-weight:600;box-shadow:var(--shadow);border:2px solid transparent;transition:.2s}
+    .btn:hover{transform:translateY(-1px);background:var(--brand-orange-500)}
+    .btn.secondary{background:transparent;border-color:var(--brand-green-600);color:var(--brand-green-600)}
+    .badge{display:inline-block;background:var(--bg-50);border:1px solid #e5efe9;color:var(--brand-green-600);padding:.35rem .6rem;border-radius:999px;font-size:.8rem;font-weight:600;letter-spacing:.02em}
+    .nav{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #eef2f0}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+    .brand{display:flex;align-items:center;gap:.75rem}
+    .brand img{width:44px;height:44px;object-fit:contain}
+    .brand-name{font-weight:800;letter-spacing:.02em}
+    .menu{display:flex;gap:1.25rem}
+    .menu a{color:var(--ink-700);font-weight:600}
+    .menu a:hover{color:var(--brand-green-600)}
+    .hamburger{display:none;background:transparent;border:0;font-size:1.5rem}
+    @media(max-width:900px){
+      .menu{display:none;position:absolute;inset:72px 0 auto 0;background:#fff;border-bottom:1px solid #eef2f0;flex-direction:column;padding:1rem 1.25rem}
+      .menu.open{display:flex}
+      .hamburger{display:block}
+    }
+    .hero{position:relative;overflow:hidden}
+    .hero .wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:2rem;align-items:center;padding:64px 0}
+    .hero-card{background:linear-gradient(135deg,#ffffff, #f3fbf7);border:1px solid #e6f1ec;border-radius:var(--radius);padding:2rem;box-shadow:var(--shadow)}
+    .hero h1{font-size:clamp(2rem,4vw,3rem);line-height:1.1;margin:.6rem 0}
+    .hero p{color:var(--ink-700);font-size:1.05rem}
+    .hero-cta{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+    .hero-illus{position:relative}
+    .hero-illus .panel{background:linear-gradient(180deg,#0e3f2f, #145740);border-radius:var(--radius);height:360px;box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center}
+    .hero-illus .panel img{width:70%;filter:drop-shadow(0 10px 24px rgba(0,0,0,.25))}
+    section{padding:80px 0}
+    .section-head{display:flex;align-items:end;justify-content:space-between;margin-bottom:28px;gap:1rem;flex-wrap:wrap}
+    .section-head h2{font-size:clamp(1.6rem,2.4vw,2.2rem);margin:0}
+    .muted{color:var(--ink-500)}
+    .grid{display:grid;gap:1.25rem}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-4{grid-template-columns:repeat(4,1fr)}
+    @media(max-width:1000px){.grid.cols-3,.grid.cols-4{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}}
+    .card{background:#fff;border:1px solid #ecf2f0;border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow)}
+    .card h3{margin:.25rem 0 .5rem;font-size:1.1rem}
+    .card p{margin:0;color:var(--ink-700);font-size:.98rem}
+    .icon{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:rgba(20,106,74,.1);color:var(--brand-green-600);font-weight:800}
+    .project{overflow:hidden}
+    .project img{border-radius:14px;aspect-ratio:4/3;object-fit:cover;border:1px solid #e9efec}
+    .service-area{background:var(--bg-50)}
+    .map{height:420px;border:1px solid #e6f0ec;border-radius:var(--radius);overflow:hidden}
+    .about{background:linear-gradient(180deg,#ffffff 0%, #f6fbf8 100%)}
+    .about .cols{display:grid;grid-template-columns:1.1fr .9fr;gap:2rem}
+    @media(max-width:950px){.about .cols{grid-template-columns:1fr}}
+    .contact .form{background:#fff;border:1px solid #e6f0ec;border-radius:var(--radius);padding:1.25rem;box-shadow:var(--shadow)}
+    .form .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    @media(max-width:700px){.form .row{grid-template-columns:1fr}}
+    .form label{display:block;font-weight:600;margin:.25rem 0}
+    .form input,.form select,.form textarea{width:100%;border:1px solid #dfe7e4;border-radius:12px;padding:.8rem;font-size:1rem}
+    .form textarea{min-height:140px;resize:vertical}
+    .footer{background:#0f2f24;color:#d9f2e8}
+    .footer a{color:#d9f2e8}
+    .footer small{color:#a5dacb}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ProfessionalService",
+    "name":"True North Surveying",
+    "url":"https://your-domain.com",
+    "logo":"https://your-domain.com/assets/tns-logo.png",
+    "slogan":"Precision Starts Here",
+    "areaServed":"US",
+    "telephone":"+1-000-000-0000",
+    "address":{"@type":"PostalAddress","addressLocality":"Your City","addressRegion":"TX","addressCountry":"US"},
+    "sameAs": ["https://www.linkedin.com/"],
+    "serviceType":[
+      "ALTA/NSPS Land Title Surveys",
+      "Boundary & Lot Surveys",
+      "Topographic & Site Surveys",
+      "Construction Staking & Layout",
+      "As-Built/Record Surveys",
+      "UAV/Drone Mapping & Photogrammetry",
+      "3D Laser Scanning",
+      "Utility & Route Surveys"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="brand">
+        <img src="assets/tns-logo.png" alt="True North Surveying logo" />
+        <span class="brand-name">True North Surveying</span>
+      </a>
+      <button class="hamburger" aria-label="Open menu" onclick="document.querySelector('.menu').classList.toggle('open')">☰</button>
+      <div class="menu" role="navigation">
+        <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
+        <a href="#projects">Projects</a>
+        <a href="#service-area">Service Area</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="btn">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="top" class="hero">
+    <div class="container wrap">
+      <div class="hero-card">
+        <span class="badge">Precision Starts Here</span>
+        <h1>Land Surveying for Builders, Title, and Civil Projects</h1>
+        <p>Licensed surveyors delivering reliable ALTA/NSPS, boundary, topographic, construction staking, and as-built surveys. Fast turnaround, clear deliverables, and responsive communication.</p>
+        <div class="hero-cta">
+          <a href="#contact" class="btn">Request a Quote</a>
+          <a href="#services" class="btn secondary">View Services</a>
+        </div>
+        <ul class="muted" style="margin-top:1rem;line-height:1.8">
+          <li>Signed and sealed deliverables in PDF and DWG</li>
+          <li>Builder ready construction staking</li>
+          <li>UAV and 3D scanning available</li>
+        </ul>
+      </div>
+      <div class="hero-illus">
+        <div class="panel">
+          <img src="assets/tns-logo.png" alt="True North Surveying emblem" />
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <h2>Surveying Services</h2>
+        <p class="muted">End to end support for developers, contractors, title companies, and municipalities.</p>
+      </div>
+      <div class="grid cols-3">
+        <div class="card"><div class="icon">A</div><h3>ALTA and NSPS Land Title</h3><p>Compliant surveys with Table A options, title review, easements, and encumbrances clearly mapped.</p></div>
+        <div class="card"><div class="icon">B</div><h3>Boundary and Lot</h3><p>Property line retracement, legal descriptions, and monumentation for residential and commercial tracts.</p></div>
+        <div class="card"><div class="icon">T</div><h3>Topographic and Site</h3><p>Contours, spot elevations, utilities, and surface features for design and grading plans.</p></div>
+        <div class="card"><div class="icon">C</div><h3>Construction Staking</h3><p>Layout for foundations, utilities, paving, and structures with control networks and cut or fill reports.</p></div>
+        <div class="card"><div class="icon">R</div><h3>As Built or Record</h3><p>Field verified locations of improvements to confirm compliance and document changes.</p></div>
+        <div class="card"><div class="icon">U</div><h3>UAV or Drone Mapping</h3><p>High resolution orthomosaics and surfaces for quantity takeoffs and progress tracking.</p></div>
+        <div class="card"><div class="icon">3D</div><h3>Three D Laser Scanning</h3><p>High density point clouds and precise models for complex sites and existing conditions.</p></div>
+        <div class="card"><div class="icon">G</div><h3>GIS and Route Surveys</h3><p>Linear corridors, utility routes, and asset mapping with GIS deliverables.</p></div>
+        <div class="card"><div class="icon">E</div><h3>Elevation Certificates</h3><p>FEMA elevation certificates for floodplain compliance and insurance requirements.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="service-area">
+    <div class="container">
+      <div class="section-head">
+        <h2>Industries We Serve</h2>
+        <p class="muted">Commercial, Residential, Municipal, Transportation, Energy, and Industrial</p>
+      </div>
+      <div class="grid cols-4">
+        <div class="card"><h3>Developers and General Contractors</h3><p>Pre construction control, staking, and rapid as builts to keep schedules on track.</p></div>
+        <div class="card"><h3>Title and Attorneys</h3><p>Clear, defensible plats and legal descriptions for real estate transactions.</p></div>
+        <div class="card"><h3>Civil and A or E Firms</h3><p>Topos and control networks that integrate with your CAD standards.</p></div>
+        <div class="card"><h3>Public Sector</h3><p>Municipal and DOT ready deliverables with QA and QC and documentation.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2>Recent Projects</h2>
+        <p class="muted">A snapshot of deliverables our clients rely on.</p>
+      </div>
+      <div class="grid cols-3">
+        <a class="project"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1200&auto=format&fit=crop" alt="Construction staking on commercial site"></a>
+        <a class="project"><img src="https://images.unsplash.com/photo-1501700493788-fa1a3e1b9ee3?q=80&w=1200&auto=format&fit=crop" alt="Topographic survey field crew"></a>
+        <a class="project"><img src="https://images.unsplash.com/photo-1564760290292-23341e4df6ec?q=80&w=1200&auto=format&fit=crop" alt="Drone mapping area"></a>
+      </div>
+    </div>
+  </section>
+
+  <section id="service-area" class="service-area">
+    <div class="container">
+      <div class="section-head">
+        <h2>Service Area</h2>
+        <p class="muted">Headquartered in your city and serving the broader region. Ask about travel for specialty work.</p>
+      </div>
+      <div class="map">
+        <iframe
+          title="Service Area Map"
+          width="100%" height="100%" style="border:0"
+          loading="lazy" allowfullscreen
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d13424.997!2d-97.3308!3d32.7555!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzLCsDQ1JzIwLjAiTiA5N8KwMTknNTAuOSI!5e0!3m2!1sen!2sus!4v0000000000">
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container cols">
+      <div>
+        <div class="section-head" style="margin-bottom:12px">
+          <h2>About True North Surveying</h2>
+        </div>
+        <p>We combine field expertise with QA and QC to deliver defensible plats and CAD files that engineers and title partners trust. Our team uses GNSS, total stations, UAVs, and laser scanners to match the method to each site.</p>
+        <p>Every project includes a clear scope, defined deliverables, and responsive communication. If you need an expedited turnaround, we plan a path that keeps your schedule moving.</p>
+        <ul class="muted" style="line-height:1.9">
+          <li>Signed and sealed PDFs and DWGs with layers on request</li>
+          <li>Table A options for ALTA and NSPS as needed</li>
+          <li>Safety first field operations and documented procedures</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Certifications and Insurance</h3>
+        <p class="muted">Provide your license numbers and coverage here.</p>
+        <div class="grid cols-2" style="grid-template-columns:1fr 1fr">
+          <div><strong>RPLS:</strong> ######</div>
+          <div><strong>UAV Pilot:</strong> Part 107</div>
+          <div><strong>GL or PL:</strong> $X,000,000</div>
+          <div><strong>W9 or COI:</strong> Available upon request</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Request a Quote</h2>
+        <p class="muted">Tell us about your site, timeline, and deliverables.</p>
+      </div>
+      <div class="form">
+        <form name="quote-form" method="post" action="#">
+          <div class="row">
+            <div>
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" required />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required />
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" />
+            </div>
+            <div>
+              <label for="service">Service Needed</label>
+              <select id="service" name="service">
+                <option>ALTA and NSPS Survey</option>
+                <option>Boundary or Lot Survey</option>
+                <option>Topographic Survey</option>
+                <option>Construction Staking</option>
+                <option>As Built Survey</option>
+                <option>UAV or Drone Mapping</option>
+                <option>Three D Laser Scanning</option>
+                <option>Other</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div>
+              <label for="site">Project Address or Parcel</label>
+              <input id="site" name="site" type="text" placeholder="Address, APN, or legal description" />
+            </div>
+            <div>
+              <label for="deadline">Timeline</label>
+              <input id="deadline" name="deadline" type="text" placeholder="For example two weeks" />
+            </div>
+          </div>
+          <div>
+            <label for="details">Details</label>
+            <textarea id="details" name="details" placeholder="Scope, deliverables, Table A options, access notes"></textarea>
+          </div>
+          <div style="margin-top:1rem">
+            <button class="btn" type="submit">Send Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="padding:28px 0;display:grid;gap:12px">
+      <div style="display:flex;gap:.75rem;align-items:center">
+        <img src="assets/tns-logo.png" alt="" style="width:30px;height:30px" />
+        <strong>True North Surveying</strong>
+      </div>
+      <small>© <span id="year"></span> True North Surveying. All rights reserved.</small>
+      <small><a href="#contact">Get a Quote</a> · <a href="#services">Services</a> · <a href="#about">About</a></small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    document.querySelectorAll('.menu a').forEach(a=>{
+      a.addEventListener('click', ()=> document.querySelector('.menu').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
